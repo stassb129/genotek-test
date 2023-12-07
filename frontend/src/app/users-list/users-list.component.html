@@ -1,0 +1,24 @@
+<main class="wrapper">
+  <div class="users-list">
+    <div class="user" *ngFor="let user of users">
+      <img src="assets/user-icon.png" alt="">
+      <div class="user-name">
+        <span>{{user.name}}</span>
+        <span>{{user.surname}}</span>
+      </div>
+      <span class="user-city">{{user.city}}</span>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="onPageChange(1)" [class.selected]="currentPage === 1">В начало</button>
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Назад</button>
+
+    <ng-container *ngFor="let page of getPages()">
+      <button (click)="onPageChange(page)" [class.selected]="currentPage === page">{{ page }}</button>
+    </ng-container>
+
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Вперед</button>
+    <button (click)="onPageChange(totalPages)" [class.selected]="currentPage === totalPages">В конец</button>
+  </div>
+</main>

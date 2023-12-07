@@ -1,0 +1,33 @@
+@import '../styles';
+
+.logo {
+  width: 150px;
+}
+
+.title {
+  font-size: 32px;
+  margin: 10px 0;
+  font-weight: 400;
+  position: relative;
+  color: $main-text-color;
+
+  &:before {
+    margin: -5px;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 5px;
+    border-radius: 3px;
+    background-color: $primary-color;
+    animation: expandLine 1s forwards;
+  }
+
+  @keyframes expandLine {
+    to {
+      width: 100%;
+    }
+  }
+}
